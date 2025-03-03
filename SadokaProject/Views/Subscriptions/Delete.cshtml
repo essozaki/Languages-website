@@ -1,0 +1,35 @@
+﻿@model SubscriptionsVM;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="">
+    <div class="">
+
+        <h2>Delete </h2>
+
+        <form asp-controller="Subscriptions" asp-action="Delete" class="form-group ">
+
+            <div asp-validation-summary="All;" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" disabled class="form-control" />
+
+            <label>Email </label>
+            <input type="Text" asp-for="Email" disabled class="form-control" />
+            <br />
+            <br />
+            <center>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="Subscriptions" asp-action="Edite" asp-route-id="@Model.Id" class="btn btn-primary">Edite</a>
+
+            </center>
+            <br />   <br />
+        </form>
+        <center>
+            <a asp-controller="Subscriptions" asp-action="Index" class="btn btn-success">Back</a>
+        </center>
+    </div>
+</section>
+

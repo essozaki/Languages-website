@@ -1,0 +1,228 @@
+﻿@model IEnumerable<HeaderVM>;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- BEGIN: Content-->
+<div class="content-overlay"></div>
+<div class="header-navbar-shadow"></div>
+<div class="">
+    <div class="content-header row">
+        <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+                <div class="col-12">
+                    <h2 class="content-header-title float-left mb-0">Home Header</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        @*<div class="dt-buttons btn-group">
+            <a asp-action="Create" asp-controller="Header" class="btn btn-outline-primary" style="margin:20px">
+                <span><i class="feather icon-plus"></i></span>
+            </a>
+        </div>*@
+        <div class="table-responsive">
+            <table class="table data-thumb-view">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>Language</th>
+                        <th class="col-md-4">Title</th>
+                        <th class="col-md-4">Description</th>
+                        <th class ="col-md-2">Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+@*                    Filipino Chinese Spanish Romanian French Turkish Italian  German
+*@                  @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>English</td>
+                            <td class="product-name col-4">@item.HeaderTitle</td>
+                            <td class="product-name col-4">@item.HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Arabic</td>
+                            <td class="product-name col-4">@item.Ar_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Ar_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>German</td>
+                            <td class="product-name col-4">@item.Ger_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Ger_HeaderDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                            <span class="action-delete"><i class="feather icon-trash"></i></span>
+                            </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Italian</td>
+                            <td class="product-name col-4">@item.ital_HeaderTitle</td>
+                            <td class="product-name col-4">@item.ital_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Turkish</td>
+                            <td class="product-name col-4">@item.Tur_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Tur_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td><td>@item.Id</td>
+                            <td>French</td>
+                            <td class="product-name col-4">@item.Fr_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Fr_HeaderDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                            <span class="action-delete"><i class="feather icon-trash"></i></span>
+                            </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Romanian</td>
+                            <td class="product-name col-4">@item.Rom_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Rom_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Spanish</td>
+                            <td class="product-name col-4">@item.Esp_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Esp_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Chinese</td>
+                            <td class="product-name col-4">@item.Chines_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Chines_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Filipino</td>
+                            <td class="product-name col-4">@item.Filip_HeaderTitle</td>
+                            <td class="product-name col-4">@item.Filip_HeaderDescription</td>
+                            <td style="width:50px; height:50px" >
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                               @* <a asp-action="Delete" asp-controller="Header" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>*@
+                            </td>
+                        </tr>  
+                        }
+                  
+                </tbody>
+            </table>
+        </div>
+
+    
+    </div>
+</div>

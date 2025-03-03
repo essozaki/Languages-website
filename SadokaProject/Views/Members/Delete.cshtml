@@ -1,0 +1,128 @@
+﻿@model MembersVM;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="">
+    <div class="">
+
+        <h2>Delete </h2>
+
+        <form asp-controller="Members" asp-action="Delete" class="form-group ">
+
+            <div asp-validation-summary="All;" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" disabled class="form-control" />
+            <input type="hidden" asp-for="MemberImgUrl" disabled class="form-control" />
+
+            <label>English Member Name</label>
+            <input type="Text" asp-for="MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Arabic Member Name</label>
+            <input type="Text" asp-for="Ar_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Member Name</label>
+            <input type="Text" asp-for="Ger_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Member Name</label>
+            <input type="Text" asp-for="ital_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Member Name</label>
+            <input type="Text" asp-for="Rom_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Member Name</label>
+            <input type="Text" asp-for="Fr_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Member Name</label>
+            <input type="Text" asp-for="Tur_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Member Name</label>
+            <input type="Text" asp-for="Esp_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Chinese Member Name</label>
+            <input type="Text" asp-for="Chines_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Member Name</label>
+            <input type="Text" asp-for="Filip_MemberName" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Member Position</label>
+            <input type="Text" asp-for="MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Arabic Member Position</label>
+            <input type="Text" asp-for="Ar_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Member Position</label>
+            <input type="Text" asp-for="Ger_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Member Position</label>
+            <input type="Text" asp-for="ital_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Member Position</label>
+            <input type="Text" asp-for="Rom_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Member Position</label>
+            <input type="Text" asp-for="Fr_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Member Position</label>
+            <input type="Text" asp-for="Tur_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Member Position</label>
+            <input type="Text" asp-for="Esp_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Chinese Member Position</label>
+            <input type="Text" asp-for="Chines_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Member Position</label>
+            <input type="Text" asp-for="Filip_MemberTitle" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Image</label>
+            <div style="width:150px;Height:150px">
+                <img src="~/Uploads/Members/@Model.MemberImgUrl" alt="Card image cap" style="width:100%; height:100% ; border-radius:5px">
+            </div>
+            <br />
+            <br />
+            <center>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="Members" asp-action="Edite" asp-route-id="@Model.Id" class="btn btn-primary">Edite</a>
+
+            </center>
+            <br />   <br />
+        </form>
+        <center>
+            <a asp-controller="Members" asp-action="Index" class="btn btn-success">Back</a>
+        </center>
+    </div>
+</section>
+

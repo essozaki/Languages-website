@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ContactUSVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN: Content-->
+<div class="content-overlay"></div>
+<div class="header-navbar-shadow"></div>
+<div class="">
+    <div class="content-header row">
+        <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+                <div class="col-12">
+                    <h2 class="content-header-title float-left mb-0">Contact Requests </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="dt-buttons btn-group">
+            <a asp-action="Create" asp-controller="ContactUS" class="btn btn-outline-primary" style="margin:20px">
+                <span><i class="feather icon-plus"></i></span>
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table data-thumb-view">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="col-md-4">Name</th>
+                        <th class="col-md-2">Email</th>
+                        <th class="col-md-2">Message </th>
+                        <th class="col-md-2">Phone </th>
+                        <th class="col-md-2">Address </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td class="product-name ">@item.Name</td>
+                            <td class="product-name ">@item.Email</td>
+                            <td class="product-name ">@item.Message</td>
+                            <td class="product-name ">@item.Phone</td>
+                            <td class="product-name ">@item.Address</td>
+
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="ContactUS" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="ContactUS" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

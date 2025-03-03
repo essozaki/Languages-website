@@ -1,0 +1,33 @@
+﻿@model PartnersVM;
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-body">
+
+    <h2 id="TOP_PAGE">Create </h2>
+
+    <form asp-action="Create" asp-controller="Partners" class="form-group " enctype="multipart/form-data">
+        
+       
+
+        <div class="card-body demo-vertical-spacing demo-only-element">
+            <div class="input-group">
+                <label for="data-name" class="input-group-text">Upload photo</label>
+                <input style="background-color: #10163A; margin: 5px " class="form-control" asp-for="PartnersPhoto" />
+            </div>
+        </div>
+
+        <center>
+            <input type="submit" value="Save" class="btn btn-success" />
+            <input type="reset" value="Cancle" class="btn btn-danger" />
+        </center>
+        <br />   <br />
+    </form>
+    <center>
+        <a asp-controller="Partners" asp-action="Index" class="btn btn-primary">Back</a>
+    </center>
+</div>
+

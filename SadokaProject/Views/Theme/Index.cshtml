@@ -1,0 +1,228 @@
+﻿@model IEnumerable<ThemeVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN: Content-->
+<div class="content-overlay"></div>
+<div class="header-navbar-shadow"></div>
+<div class="">
+    <div class="content-header row">
+        <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+                <div class="col-12">
+                    <h2 class="content-header-title float-left mb-0">Theme Section</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="dt-buttons btn-group">
+            <a asp-action="Create" asp-controller="Theme" class="btn btn-outline-primary" style="margin:20px">
+                <span><i class="feather icon-plus"></i></span>
+            </a>
+        </div>
+        <div class="table-responsive">
+            <table class="table data-thumb-view">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>Language</th>
+                        <th class="col-md-4">Title</th>
+                        <th class="col-md-4">Description</th>
+                        <th class="col-md-2">Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>English</td>
+                            <td class="product-name col-4">@item.ThemeTitle</td>
+                            <td class="product-name col-4">@item.ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Arabic</td>
+                            <td class="product-name col-4">@item.Ar_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Ar_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>German</td>
+                            <td class="product-name col-4">@item.Ger_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Ger_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                            </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Italian</td>
+                            <td class="product-name col-4">@item.ital_ThemeTitle</td>
+                            <td class="product-name col-4">@item.ital_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Turkish</td>
+                            <td class="product-name col-4">@item.Tur_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Tur_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>French</td>
+                            <td class="product-name col-4">@item.Fr_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Fr_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Romanian</td>
+                            <td class="product-name col-4">@item.Rom_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Rom_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Spanish</td>
+                            <td class="product-name col-4">@item.Esp_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Esp_ThemeDescription</td>
+                           <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Chinese</td>
+                            <td class="product-name col-4">@item.Chines_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Chines_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@item.Id</td>
+                            <td>Filipino</td>
+                            <td class="product-name col-4">@item.Filip_ThemeTitle</td>
+                            <td class="product-name col-4">@item.Filip_ThemeDescription</td>
+                            <td style="width:50px; height:50px">
+                                <img src="~/Uploads/Theme/@item.ThemeImgUrl" style="width:100%; height:100% ; border-radius:5px" />
+                            </td>
+                            <td class="product-action">
+                                <a asp-action="Edite" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-edit"><i class="feather icon-edit"></i></span>
+                                </a>
+                                <a asp-action="Delete" asp-controller="Theme" asp-route-id="@item.Id">
+                                    <span class="action-delete"><i class="feather icon-trash"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

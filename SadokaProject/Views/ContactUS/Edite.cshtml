@@ -1,0 +1,47 @@
+﻿@model ContactUSVM
+@{
+    ViewData["Title"] = "Edite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-body">
+
+    <h2 id="TOP_PAGE">Edite </h2>
+
+    <form asp-action="Edite" asp-controller="ContactUS" class="form-group " enctype="multipart/form-data">
+        <input type="hidden" class="form-control" asp-for="Id">
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Name </label>
+            <input type="text" class="form-control" asp-for="Name" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Email </label>
+            <input type="text" class="form-control" asp-for="Email" style="background-color: #10163A; margin: 5px ">
+        </div>
+          <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <textarea class="form-control" asp-for="Message" id="comment" placeholder="Massage"></textarea>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Phone </label>
+            <input type="text" class="form-control" asp-for="Phone" style="background-color: #10163A; margin: 5px ">
+        </div>
+         <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Address </label>
+            <input type="text" class="form-control" asp-for="Address" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <center>
+            <input type="submit" value="Edite" class="btn btn-success" />
+        </center>
+        <br />   <br />
+    </form>
+    <center>
+        <a asp-controller="ContactUS" asp-action="Index" class="btn btn-primary">Back</a>
+    </center>
+</div>
+

@@ -1,0 +1,1914 @@
+﻿﻿@using Languagy_project.BLL;
+
+@model Languagy_project.Models.LanguagyVM;
+
+@inject IHeaderRep header;
+@inject IWelcomeRep welcome;
+@inject IThemeRep theme;
+@inject IFeaturesRep feature;
+@inject IPartnersRep partner;
+@inject IMembersRep member;
+@inject IQuestionsRep question;
+
+@using Microsoft.Extensions.Localization
+@using Languagy_project.Resources
+
+
+@inject IStringLocalizer<ShairedResource> SharedLocalizer
+
+@{
+    var Culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+    Layout = null;
+    var x = 1;
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cryptocurrency Landing Page HTML5 Template">
+    <meta name="keywords" content="Cryptocurrency, bitcoin, bitcoin landing, blockchain, crypto trading ">
+    <meta name="author" content="Ecology Theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saadoka</title>
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/assets/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css">
+    <link rel="stylesheet" href="~/css/assets/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/assets/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/assets/owl.theme.css">
+    <link rel="stylesheet" href="~/css/assets/jquery.countdown.css">
+    <link rel="stylesheet" href="~/css/assets/animate.css">
+    <link rel="stylesheet" href="~/css/assets/preloader.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/cryptonio.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body class="body_06 loaded">
+    <!-- Preloader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <header id="header-06" class="header">
+        <!-- START NAVBAR -->
+        <div id="sticky-wrapper" class="sticky-wrapper" style="height: 118px;">
+            <nav class="navbar navbar-expand-md navbar-light bg-faded cripto_nav">
+                <div class="container">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" data-scroll="" asp-action="Index" asp-controller="Languagy"><img src="" alt="logo"></a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a data-scroll="" href="#header-06" class="nav-link active">@SharedLocalizer["Home"]</a></li>
+                            <li class="nav-item"><a data-scroll="" href="#welcome_cryptonic_06" class="nav-link">@SharedLocalizer["About"]</a></li>
+                            <li class="nav-item"><a data-scroll="" href="#best_feature_06" class="nav-link">@SharedLocalizer["Features"]</a></li>
+                            <li class="nav-item"><a data-scroll="" href="#team_membar" class="nav-link">@SharedLocalizer["TeamLeader"]</a></li>
+                            <li class="nav-item"><a data-scroll="" href="#faq-area-06" class="nav-link">@SharedLocalizer["Faq"]</a></li>
+                        </ul>
+                    </div>
+                    <div class="language">
+                        <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+                        <div class="dropdown">
+                            @if (Culture == "ar-SA")
+                            {
+                                <span>AR<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "fr-CH")
+                            {
+                                <span>Chi<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "en-US")
+                            {
+                                <span>Eng<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "tr-TR")
+                            {
+                                <span>Tur<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "de-DE")
+                            {
+                                <span>DE<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "fi-FI")
+                            {
+                                <span>FL<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "it-IT")
+                            {
+                                <span>It<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "fr-FR")
+                            {
+                                <span>It<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+                                </ul>
+                            }
+                            @if (Culture == "ro-RO")
+                            {
+                                <span>Rom<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="es-ES">Español</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+
+                                </ul>
+                            }
+                            @if (Culture == "es-ES")
+                            {
+                                <span>Esp<i class="fas fa-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="it-IT">Italiano</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-FR">Français</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fi-FI">Flipinno</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="tr-TR">Turkish</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ar-SA">العربية</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="en-US">English</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="de-DE">Germany</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="fr-CH">中國人</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Languagy" asp-action="Index" asp-route-culture="ro-RO">Română</a></li>
+
+                                </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div><!-- END NAVBAR -->
+        <div class="container">
+            @if (Culture == "ar-SA")
+            {
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Ar_HeaderTitle </h1>
+                                <p>@item.Ar_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "fr-CH")
+            {
+
+
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Chines_HeaderTitle </h1>
+                                <p>@item.Chines_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "en-US")
+            {
+
+
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.HeaderTitle </h1>
+                                <p>@item.HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "tr-TR")
+            {
+
+
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Tur_HeaderTitle </h1>
+                                <p>@item.Tur_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "de-DE")
+            {
+
+
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Ger_HeaderTitle </h1>
+                                <p>@item.Ger_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "fr-FR")
+            {
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Fr_HeaderTitle </h1>
+                                <p>@item.Fr_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "es-ES")
+            {
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Esp_HeaderTitle </h1>
+                                <p>@item.Esp_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "ro-RO")
+            {
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Rom_HeaderTitle </h1>
+                                <p>@item.Rom_HeaderDescription</p>
+                                <div class="btn_video_wrapper ">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "it-IT")
+            {
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.ital_HeaderTitle </h1>
+                                <p>@item.ital_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            @if (Culture == "fi-FI")
+            {
+                @foreach (var item in header.Get())
+                {
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6">
+                            <div class="intro-text">
+                                <h1>@item.Filip_HeaderTitle </h1>
+                                <p>@item.Filip_HeaderDescription</p>
+                                <div class="btn_video_wrapper">
+                                    <a href="#contact_06" class="token">@SharedLocalizer["ContactUs"]</a>
+
+                                </div>
+                                <div class="countdown_time">
+                                    <h3>Co2o @SharedLocalizer["Endin"]</h3>
+                                    <div class="clock-countdown">
+                                        <div class="site-config" data-date="12/11/2020 00:00:00" data-date-timezone="+0"></div>
+                                        <div class="coundown-timer d-flex justify-content-center">
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="days count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Days"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="hours count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Hours"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="minutes count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Minutes"]</span></div>
+                                            <div class="single-counter  d-flex flex-column"><h4><span class="seconds count-time gradient-color">00</span></h4><span class="normal">@SharedLocalizer["Seconds"]</span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-12 col-lg-6 img-wrapper">
+                            <div class="intro-img">
+                                <div class="bounce_wrapper">
+                                    <img src="~/Uploads/Header/@item.HeaderImgUrl" alt="">
+                                    <div class="shape-1">
+                                        <div class="box bounce-1"><img src="~/images/bounce/header1_b.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <span class="shape1 header-shape"><img src="~/images/shape/home_6/header6_shape_1.png" alt=""></span>
+        <span class="shape2 header-shape"><img src="~/images/shape/home_6/header6_shape_2.png" alt=""></span>
+        <span class="shape3 header-shape"><img src="~/images/shape/home_6/header6_shape_3.png" alt=""></span>
+        <span class="shape4 header-shape "><img src="~/images/shape/home_6/header6_shape_4.png" alt=""></span>
+        <span class="shape5 header-shape"><img src="~/images/shape/home_6/header6_shape_5.png" alt=""></span>
+        <span class="shape6 header-shape"><img src="~/images/shape/home_6/header6_shape_6.png" alt=""></span>
+
+        <span class="bubble1 header-shape"><img src="~/images/particals_icon/fixed1.png" alt=""></span>
+        <span class="bubble2 header-shape"><img src="~/images/particals_icon/fixed1.png" alt=""></span>
+        <span class="bubble3 header-shape"><img src="~/images/particals_icon/fixed2.png" alt=""></span>
+        <span class="bubble4 header-shape"><img src="~/images/particals_icon/fixed4.png" alt=""></span>
+
+        <div id="particles1-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="2468" style="width: 100%; height: 100%;"></canvas></div>
+    </header> <!-- End Header -->
+
+    <section id="welcome_cryptonic_06">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="sub-title">
+                        <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay=".1s" style="visibility: hidden; animation-name: none;">@SharedLocalizer["Welcometothe"] Co2o</h2>
+                    </div>
+                </div>
+            </div>
+            @if (Culture == "en-US")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "ro-RO")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Rom_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "fi-FI")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Filip_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "ar-SA")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Ar_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "it-IT")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.ital_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "tr-TR")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Tur_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "fr-FR")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Fr_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "es-ES")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Esp_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "fr-CH")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Chines_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "de-DE")
+            {
+                @foreach (var item in welcome.Get())
+                {
+                    <div class="row ">
+                        <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
+                            <div class="about_cryptonic-content">
+                                <img src="~/Uploads/Welcome/@item.WelcomeIImgUrl" alt="" class="wow ZoomInUp" data-animate="ZoomInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Ger_WelcomeDescription
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+        <span class="shape1 header-shape"><img src="~/images/shape/home_6/wel-map.png" alt=""></span>
+        <span class="bubble1 header-shape"><img src="~/images/particals_icon/fixed1.png" alt=""></span>
+        <span class="bubble2 header-shape"><img src="~/images/particals_icon/fixed1.png" alt=""></span>
+        <div id="particles2-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="2166" style="width: 100%; height: 100%;"></canvas></div>
+    </section> <!-- End welcome_cryptonic -->
+
+    <section id="about_cryptonic_06">
+        <div class="container">
+            @if (Culture == "de-DE")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Ger_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Ger_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "ar-SA")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Ar_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Ar_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "tr-TR")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Tur_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Tur_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "it-IT")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.ital_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.ital_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "fr-FR")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Fr_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Fr_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "es-ES")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Esp_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Esp_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "en-US")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "fi-FI")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Filip_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Filip_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "fr-CH")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Chines_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Chines_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Culture == "ro-RO")
+            {
+                @foreach (var item in theme.Get())
+                {
+                    <div class="row">
+                        <div class="col-sm-12 col-md-7 col-lg-5 padding-none">
+                            <div class="about_cryptonic-content">
+                                <h2 class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.2s" style="visibility: hidden; animation-name: none;">@item.Rom_ThemeTitle </h2>
+                                <p class=" wow fadeInUp" data-animate="fadeInUp" data-delay="0.3s" style="visibility: hidden; animation-name: none;">
+                                    @item.Rom_ThemeDescription
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-lg-7">
+                            <div class="about-img">
+                                <div class="img-wrapper">
+                                    <img src="~/Uploads/Theme/@item.ThemeImgUrl" alt="" class="wow fadeInUp" data-animate="fadeInUp" data-delay=".3s" style="visibility: hidden; animation-name: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+        <span class="shape1 header-shape"><img src="~/images/shape/home_6/about-light-1.png" alt=""></span>
+        <span class="shape2 header-shape"><img src="~/images/shape/home_6/about-light-2.png" alt=""></span>
+        <span class="bubble1 header-shape"><img src="~/images/particals_icon/fixed1.png" alt=""></span>
+        <span class="bubble2 header-shape"><img src="~/images/particals_icon/fixed2.png" alt=""></span>
+        <span class="bubble3 header-shape"><img src="~/images/particals_icon/fixed3.png" alt=""></span>
+        <div id="particles3-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="2200" style="width: 100%; height: 100%;"></canvas></div>
+    </section> <!-- End about_cryptonic -->
+
+    <section id="best_feature_06">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="sub-title">
+                        <h6>@SharedLocalizer["HowItWorks"]</h6>
+                        <h2>@SharedLocalizer["BestFeatures"] </h2>
+                        <p>@SharedLocalizer["DuetotheuseoflargecomputingpowerisassistantwillinstantlyanalyzeuserdataoffersolutionsfortheirfurtheruseoremIpsumhasbeentheindustry'sst"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row feature_items d-flex justify-content-between">
+
+                @if (Culture == "fi-FI")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Filip_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "ro-RO")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Rom_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "en-US")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "ar-SA")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Ar_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "it-IT")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.ital_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "tr-TR")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Tur_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "es-ES")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Esp_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "fr-CH")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Chines_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "fr-FR")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Fr_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+                @if (Culture == "de-DE")
+                {
+                    @foreach (var item in feature.Get())
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 single-wrapper">
+                            <div class="single-items wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                <img src="~/images/icons/feature-01.png" alt="">
+                                <h3>@item.Ger_FeaturesDescription</h3>
+                            </div>
+                        </div>
+
+                    }       }
+
+            </div>
+
+        </div>
+        <span class="shape1 header-shape"><img src="~/images/shape/home_6/feature-1.png" alt=""></span>
+        <div id="particles4-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="2994" style="width: 100%; height: 100%;"></canvas></div>
+    </section>
+
+    <!-- End best_feature -->
+
+    <section id="companis_supported_06" class="companis_supported_06">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="companis_supported_logos">
+                        <div class="sub-title">
+                            <h6 class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">@SharedLocalizer["Partners"]</h6>
+                            <h2 class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">@SharedLocalizer["Supported"]</h2>
+                        </div>
+
+                        <ul class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.5s; animation-name: none;">
+
+                            @foreach (var item in partner.Get())
+                            {
+                                <li><img src="~/Uploads/Partners/@item.PartnersLogoUrl" alt=""></li>
+
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles8-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="1434" style="width: 100%; height: 100%;"></canvas></div>
+        <span class="bubble1 header-shape"><img src="~/images/particals_icon/fixed1.png" alt=""></span>
+        <span class="bubble2 header-shape"><img src="~/images/particals_icon/fixed2.png" alt=""></span>
+    </section>
+    <!-- End companis_supported -->
+
+    <section id="team_membar" class="team_membar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="sub-title">
+                        <h2 class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">@SharedLocalizer["MeetOurTeamMembers"]</h2>
+                        <p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s;">@SharedLocalizer["Duetotheuseoflargecomputingpowerandartificialbasedontheneuralnetwork,theNRMassistantwillinstantlyanalyzeuserdataand offersolutionsfortheirfurtheruse."]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row single-row">
+                @if (Culture == "fi-FI")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Filip_MemberName</h4>
+                                            <span>@item.Filip_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "ro-RO")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Rom_MemberName</h4>
+                                            <span>@item.Rom_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "en-US")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.MemberName</h4>
+                                            <span>@item.MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "ar-SA")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Ar_MemberName</h4>
+                                            <span>@item.Ar_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "it-IT")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.ital_MemberName</h4>
+                                            <span>@item.ital_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "tr-TR")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Tur_MemberName</h4>
+                                            <span>@item.Tur_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "es-ES")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Esp_MemberName</h4>
+                                            <span>@item.Esp_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "fr-FR")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Fr_MemberName</h4>
+                                            <span>@item.Fr_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "fr-CH")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Chines_MemberName</h4>
+                                            <span>@item.Chines_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+                @if (Culture == "de-DE")
+                {
+                    @foreach (var item in member.Get())
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 single-wrapper">
+                            <div class="team-single-item  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s;">
+                                <figure>
+                                    <div class="member-img">
+                                        <img src="~/Uploads/Members/@item.MemberImgUrl" alt="member img" class="img-fluid">
+                                    </div>
+                                    <figcaption>
+                                        <div class="member-name">
+                                            <h4>@item.Ger_MemberName</h4>
+                                            <span>@item.Ger_MemberTitle</span>
+                                        </div>
+
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="faq-area-06" class="faq-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="sub-title">
+                        <h2 class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">@SharedLocalizer["FrequentlyAskedQuestions"]</h2>
+                        <p class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">@SharedLocalizer["Artificialbasedontheneuralnetwork,theNRMassistantwillinstantlyanalyzeuserdatause."]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-5">
+                    <div class="faq-img  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                        <img src="~/images/fap-01.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-7">
+                    <div class="faq-wrapper">
+                        <!--Accordion wrapper-->
+                        <div class="panel-group accordion-wrapper" id="accordion" role="tablist" aria-multiselectable="true">
+                            @if (Culture == "en-US")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+                                }
+                            }
+                            @if (Culture == "fi-FI")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Filip_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Filip_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+                                }
+                            }
+                            @if (Culture == "ro-RO")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Rom_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Rom_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "ar-SA")
+                            {@foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Ar_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Ar_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "it-IT")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.ital_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.ital_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "tr-TR")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Tur_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Tur_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "fr-FR")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Fr_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Fr_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "es-ES")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Esp_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Esp_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "fr-CH")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Chines_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Chines_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+
+
+                                }
+                            }
+                            @if (Culture == "de-DE")
+                            {
+                                @foreach (var item in question.Get())
+                                {
+                                    <div class="panel accordion-single accordion-01  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_@x" aria-expanded="false" aria-controls="collapse_@x">
+                                                    @item.Ger_Quest
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse_@x" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-body  accordion-content">
+                                                <p>@item.Ger_Answer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    x++;
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles10-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="2702" style="width: 100%; height: 100%;"></canvas></div>
+    </section><!-- End faq-area -->
+
+    <section id="contact_06">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="address_wrapper">
+                        <div class="sub-title">
+                            <h2 class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">@SharedLocalizer["Getintouchwithus"]</h2>
+                        </div>
+                        <div class="contact-info-wrapper">
+                            <div class="contact-info">
+                                <div class="single-list wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                    <div class="address_title"><img src="~/images/icons/contact_1.png" alt=""><span>@SharedLocalizer["Address"]</span></div>
+                                    <div class="title_caption">
+                                        <span>21 King Street <br>Melbourne Victoria 3000</span>
+                                    </div>
+                                </div>
+                                <div class="single-list wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                    <div class="address_title"><img src="~/images/icons/contact_2.png" alt=""><span>@SharedLocalizer["CallUs"]</span></div>
+                                    <div class="title_caption">
+                                        <span>+021 554 598 562</span><br>
+                                        <span>+021 554 598 562</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact_form">
+                        <form asp-action="Contact" asp-controller="Languagy" method="Post">
+                            <div class="row">
+                                <div class="col-12 col-sm-12  form-group  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">
+                                    <input type="text" class="form-control" id="name" placeholder="@SharedLocalizer["Your"] @SharedLocalizer["Name"] " asp-for="@Model.ContactUSVM.Name">
+                                </div>
+                                <div class="col-12 col-sm-12  form-group  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                    <input type="email" class="form-control person-email" id="email" placeholder="@SharedLocalizer["E-mail"]" asp-for="@Model.ContactUSVM.Email">
+                                </div>
+                                <div class="col-12 col-sm-12 form-group  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".4s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.4s; animation-name: none;">
+                                    <textarea class="form-control" asp-for="@Model.ContactUSVM.Message" id="comment" placeholder="@SharedLocalizer["Message"]"></textarea>
+                                </div>
+                                <div class="col-12 col-sm-12 form-group">
+                                    <div class="submit-btn  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.5s; animation-name: none;">
+                                        <input type="submit" value="@SharedLocalizer["Send"]@SharedLocalizer["Massage"]">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles11-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="2006" style="width: 100%; height: 100%;"></canvas></div>
+    </section><!-- End contact -->
+
+    <div id="subscribe_area_06">
+        <div class="container">
+            <div class="row subscribe-wrapper">
+                <div class="col-12 col-md-12 col-lg-10 mx-auto">
+                    <div id="subscribe" class="subscribe">
+                        <div class="subscribe-form">
+                            <div class="sub-title">
+                                <h2 class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.2s; animation-name: none;">@SharedLocalizer["Subscribe"] </h2>
+                                <p class=" wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">@SharedLocalizer["Artificialbasedontheneuralnetwork,theCo2oassistantwillinstantlyanalyzeuserdatause."]</p>
+                            </div>
+                            <form asp-action="Subscribe" asp-controller="Languagy">
+                                <div class="form-group  wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0.3s; animation-name: none;">
+                                    <input asp-for="@Model.SubscriptionsVM.Email" placeholder="@SharedLocalizer["EnterYourEmailAddress"]" type="email" required="">
+                                    <button type="submit" class="text-center">@SharedLocalizer["Subscribe"]</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="particles12-js" class="particles"><canvas class="particles-js-canvas-el" width="718" height="712" style="width: 100%; height: 100%;"></canvas></div>
+    </div><!-- End subscribe_area -->
+
+    <footer id="footer-06" class="footer">
+
+        <div class="copyright">
+            <p> @SharedLocalizer["Copyright"] © 2022, @SharedLocalizer["Created"]@SharedLocalizer["by"]   <span>@SharedLocalizer["EIBTEK"]</span></p>
+        </div>
+
+    </footer><!-- ./ End Footer Area-->
+    <!-- JavaScript Files -->
+    <script src="~/js/assets/jquery-3.2.1.min.js"></script>
+    <script src="~/js/assets/popper.min.js"></script>
+    <script src="~/js/assets/bootstrap.min.js"></script>
+    <script src="~/js/assets/owl.carousel.min.js"></script>
+    <script src="~/js/assets/jquery.sticky.js"></script>
+    <script src="~/js/assets/isotope.pkgd.min.js"></script>
+    <script src="~/js/assets/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/assets/jquery.downCount2.js"></script>
+    <script src="~/js/assets/jquery.countdown.js"></script>
+    <script src="~/js/assets/particles.js"></script>
+    <script src="~/js/assets/app.js"></script>
+    <script src="~/js/assets/smooth-scroll.js"></script>
+    <script src="~/js/assets/wow.min.js"></script>
+    <script src="~/js/custom.js"></script>
+
+
+</body>
+</html>

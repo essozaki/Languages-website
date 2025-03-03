@@ -1,0 +1,55 @@
+﻿@model ContactUSVM;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="">
+    <d class="">
+
+        <h2>Delete </h2>
+
+        <form asp-controller="ContactUS" asp-action="Delete" class="form-group ">
+
+            <div asp-validation-summary="All;" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" disabled class="form-control" />
+
+            <label>Name </label>
+            <input type="Text" asp-for="Name" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Phone </label>
+            <input type="Text" asp-for="Phone" disabled class="form-control" />
+            <br />
+            <br />
+              <label>Email </label>
+            <input type="Text" asp-for="Email" disabled class="form-control" />
+            <br />
+            <br />
+              <label>Address </label>
+            <input type="Text" asp-for="Address" disabled class="form-control" />
+            <br />
+            <br />
+
+   
+
+                <div class="col-sm-12 data-field-col" style="margin: 10px">
+                    <textarea class="form-control"asp-for="Message" id="comment" placeholder="Massage" disabled></textarea>
+                </div>
+
+
+            <center>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="ContactUS" asp-action="Edite" asp-route-id="@Model.Id" class="btn btn-primary">Edite</a>
+
+            </center>
+            <br />   <br />
+        </form>
+        <center>
+            <a asp-controller="ContactUS" asp-action="Index" class="btn btn-success">Back</a>
+        </center>
+    </div>
+</section>
+

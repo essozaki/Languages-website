@@ -1,0 +1,124 @@
+﻿@model QuestionsVM;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="">
+    <div class="">
+
+        <h2>Delete </h2>
+
+        <form asp-controller="Questions" asp-action="Delete" class="form-group ">
+
+            <div asp-validation-summary="All;" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" disabled class="form-control" />
+
+            <label>English Question </label>
+            <input type="Text" asp-for="Quest" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>Arabic Question</label>
+            <input type="Text" asp-for="Ar_Quest" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Question</label>
+            <input type="Text" asp-for="Ger_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Question</label>
+            <input type="Text" asp-for="ital_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Question</label>
+            <input type="Text" asp-for="Rom_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Question</label>
+            <input type="Text" asp-for="Fr_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Question</label>
+            <input type="Text" asp-for="Tur_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Question</label>
+            <input type="Text" asp-for="Esp_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Chinese Question</label>
+            <input type="Text" asp-for="Chines_Quest" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Question</label>
+            <input type="Text" asp-for="Filip_Quest" disabled class="form-control" />
+            <br />
+            <br />
+
+
+
+
+
+            <label>English Answer </label>
+            <input type="Text" asp-for="Answer" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>Arabic Answer</label>
+            <input type="Text" asp-for="Ar_Answer" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Answer</label>
+            <input type="Text" asp-for="Ger_Answer" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Answer</label>
+            <input type="Text" asp-for="ital_Answer" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Answer</label>
+            <input type="Text" asp-for="Rom_Answer" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Answer</label>
+            <input type="Text" asp-for="Fr_Answer" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Answer</label>
+            <input type="Text" asp-for="Tur_Answer" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Answer</label>
+            <input type="Text" asp-for="Esp_Answer" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Chinese Answer</label>
+            <input type="Text" asp-for="Chines_Answer" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Answer</label>
+            <input type="Text" asp-for="Filip_Answer" disabled class="form-control" />
+            <br />
+            <br />
+
+            
+            <center>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="Questions" asp-action="Edite" asp-route-id="@Model.Id" class="btn btn-primary">Edite</a>
+
+            </center>
+            <br />   <br />
+        </form>
+        <center>
+            <a asp-controller="Questions" asp-action="Index" class="btn btn-success">Back</a>
+        </center>
+    </div>
+</section>
+

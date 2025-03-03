@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Languagy_project.props" />
+</Project>

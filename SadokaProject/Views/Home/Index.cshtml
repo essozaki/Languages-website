@@ -1,0 +1,47 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization;
+@using Microsoft.Extensions.Localization
+@using Languagy_project.Resources
+
+@inject IStringLocalizer<ShairedResource> SharedLocalizer
+@{
+    var Culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+
+@if(Culture == "ar-SA") { 
+
+    <div class="tect-center">
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="en-US">@SharedLocalizer["English"]</a> 
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="de-DE">@SharedLocalizer["Germany"]</a>
+    </div>
+
+
+}
+@if (Culture=="en-US") { 
+
+    <div class="tect-center">
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="ar-SA">@SharedLocalizer["Arabic"]</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="de-DE">@SharedLocalizer["Germany"]</a>
+    </div>
+
+
+}
+@if (Culture == "de-DE") { 
+
+    <div class="tect-center">
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="en-US">@SharedLocalizer["English"]</a>
+        <a asp-controller="Home" asp-action="Index" asp-route-culture="ar-SA">@SharedLocalizer["Arabic"]</a>
+
+      
+    </div>
+
+}
+<div class="tect-center">
+
+    <h1>
+        @SharedLocalizer["WelcomeSadoka"]
+    </h1>
+
+</div>
+

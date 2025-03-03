@@ -1,0 +1,158 @@
+﻿@model MembersVM
+@{
+    ViewData["Title"] = "Edite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-body">
+
+    <h2 id="TOP_PAGE">Edite </h2>
+
+    <form asp-action="Edite" asp-controller="Members" class="form-group " enctype="multipart/form-data">
+        <input type="hidden" class="form-control" asp-for="MemberImgUrl" B>
+        <input type="hidden" class="form-control" asp-for="Id">
+
+        <div class="text-center">
+            <h3>Member Name</h3>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">English Member Name</label>
+            <input type="text" class="form-control" asp-for="MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Arabic Member Name</label>
+            <input type="text" class="form-control" asp-for="Ar_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">German Member Name</label>
+            <input type="text" class="form-control" asp-for="Ger_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Italian Member Name</label>
+            <input type="text" class="form-control" asp-for="ital_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Turkish Member Name</label>
+            <input type="text" class="form-control" asp-for="Tur_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">French Member Name</label>
+            <input type="text" class="form-control" asp-for="Fr_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Romanian Member Name</label>
+            <input type="text" class="form-control" asp-for="Rom_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Spanish Member Name</label>
+            <input type="text" class="form-control" asp-for="Esp_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Chinese Member Name</label>
+            <input type="text" class="form-control" asp-for="Chines_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Filipino Member Name</label>
+            <input type="text" class="form-control" asp-for="Filip_MemberName" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+
+
+        <div class="text-center">
+            <h3>Member Position</h3>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">English Member Position</label>
+            <input type="text" class="form-control" asp-for="MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Arabic Member Position</label>
+            <input type="text" class="form-control" asp-for="Ar_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">German Member Position</label>
+            <input type="text" class="form-control" asp-for="Ger_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Italian Member Position</label>
+            <input type="text" class="form-control" asp-for="ital_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Turkish Member Position</label>
+            <input type="text" class="form-control" asp-for="Tur_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">French Member Position</label>
+            <input type="text" class="form-control" asp-for="Fr_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Romanian Member Position</label>
+            <input type="text" class="form-control" asp-for="Rom_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Spanish Member Position</label>
+            <input type="text" class="form-control" asp-for="Esp_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Chinese Member Position</label>
+            <input type="text" class="form-control" asp-for="Chines_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Filipino Member Position</label>
+            <input type="text" class="form-control" asp-for="Filip_MemberTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="card-body demo-vertical-spacing demo-only-element">
+            <div class="input-group">
+                <label for="data-name" class="input-group-text">Upload photo</label>
+                <input style="background-color: #10163A; margin: 5px " class="form-control" asp-for="MemberPhoto" />
+            </div>
+        </div>
+        <center>
+            <input type="submit" value="Edite" class="btn btn-success" />
+        </center>
+        <br />   <br />
+    </form>
+    <center>
+        <a asp-controller="Members" asp-action="Index" class="btn btn-primary">Back</a>
+    </center>
+</div>
+

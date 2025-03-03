@@ -1,0 +1,35 @@
+﻿@model PartnersVM
+@{
+    ViewData["Title"] = "Edite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-body">
+
+    <h2 id="TOP_PAGE">Edite </h2>
+
+    <form asp-action="Edite" asp-controller="Partners" class="form-group " enctype="multipart/form-data">
+        <input type="hidden" class="form-control" asp-for="PartnersLogoUrl" >
+        <input type="hidden" class="form-control" asp-for="Id">
+
+     
+
+        <div class="card-body demo-vertical-spacing demo-only-element">
+            <div class="input-group">
+                <label for="data-name" class="input-group-text">Upload photo</label>
+                <input style="background-color: #10163A; margin: 5px " class="form-control" asp-for="PartnersPhoto" />
+            </div>
+        </div>
+
+        <center>
+            <input type="submit" value="Edite" class="btn btn-success" />
+        </center>
+        <br />   <br />
+    </form>
+    <center>
+        <a asp-controller="Partners" asp-action="Index" class="btn btn-primary">Back</a>
+    </center>
+</div>
+

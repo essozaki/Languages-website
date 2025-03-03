@@ -1,0 +1,83 @@
+﻿@model WelcomeVM
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="">
+    <div class="">
+        <h2>Delete </h2>
+
+        <form asp-controller="Welcome" asp-action="Delete" class="form-group ">
+
+            <div asp-validation-summary="All;" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" disabled class="form-control" />
+            <input type="hidden" asp-for="WelcomeIImgUrl" disabled class="form-control" />
+            <label>Image</label>
+            <div style="width:150px;Height:150px">
+                <img src="~/Uploads/Welcome/@Model.WelcomeIImgUrl" alt="Card image cap" style="width:100%; height:100% ; border-radius:5px">
+            </div>
+            <br />
+            <br />
+            <label>English Description</label>
+            <input type="Text" asp-for="WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>Arabic Description</label>
+            <input type="Text" asp-for="Ar_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Description</label>
+            <input type="Text" asp-for="Ger_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Description</label>
+            <input type="Text" asp-for="ital_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Description</label>
+            <input type="Text" asp-for="Rom_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Description</label>
+            <input type="Text" asp-for="Fr_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Description</label>
+            <input type="Text" asp-for="Tur_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Description</label>
+            <input type="Text" asp-for="Esp_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Chinese Description</label>
+            <input type="Text" asp-for="Chines_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Description</label>
+            <input type="Text" asp-for="Filip_WelcomeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+          
+            <center>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="Welcome" asp-action="Edite" asp-route-id="@Model.Id" class="btn btn-primary">Edite</a>
+
+            </center>
+            <br />   <br />
+        </form>
+        <center>
+            <a asp-controller="Welcome" asp-action="Index" class="btn btn-success">Back</a>
+        </center>
+    </div>
+    </section>
+

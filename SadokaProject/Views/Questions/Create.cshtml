@@ -1,0 +1,151 @@
+﻿@model QuestionsVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-body">
+
+    <h2 id="TOP_PAGE">Create </h2>
+
+    <form asp-action="Create" asp-controller="Questions" class="form-group " enctype="multipart/form-data">
+
+       
+        <div class="text-center">
+            <h3>Question</h3>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">English Question</label>
+            <input type="text" class="form-control" asp-for="Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Arabic Question</label>
+            <input type="text" class="form-control" asp-for="Ar_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">German Question</label>
+            <input type="text" class="form-control" asp-for="Ger_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Italian Question</label>
+            <input type="text" class="form-control" asp-for="ital_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Turkish Question</label>
+            <input type="text" class="form-control" asp-for="Tur_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">French Question</label>
+            <input type="text" class="form-control" asp-for="Fr_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Romanian Question</label>
+            <input type="text" class="form-control" asp-for="Rom_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Spanish Question</label>
+            <input type="text" class="form-control" asp-for="Esp_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Chinese Question</label>
+            <input type="text" class="form-control" asp-for="Chines_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Filipino Question</label>
+            <input type="text" class="form-control" asp-for="Filip_Quest" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+
+
+        <div class="text-center">
+            <h3>Answer</h3>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">English Answer</label>
+            <input type="text" class="form-control" asp-for="Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Arabic Answer</label>
+            <input type="text" class="form-control" asp-for="Ar_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">German Answer</label>
+            <input type="text" class="form-control" asp-for="Ger_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Italian Answer</label>
+            <input type="text" class="form-control" asp-for="ital_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Turkish Answer</label>
+            <input type="text" class="form-control" asp-for="Tur_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">French Answer</label>
+            <input type="text" class="form-control" asp-for="Fr_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Romanian Answer</label>
+            <input type="text" class="form-control" asp-for="Rom_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Spanish Answer</label>
+            <input type="text" class="form-control" asp-for="Esp_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Chinese Answer</label>
+            <input type="text" class="form-control" asp-for="Chines_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Filipino Answer</label>
+            <input type="text" class="form-control" asp-for="Filip_Answer" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+<center>
+            <input type="submit" value="Save" class="btn btn-success" />
+            <input type="reset" value="Cancle" class="btn btn-danger" />
+        </center>
+        <br />   <br />
+    </form>
+    <center>
+        <a asp-controller="Questions" asp-action="Index" class="btn btn-primary">Back</a>
+    </center>
+</div>
+

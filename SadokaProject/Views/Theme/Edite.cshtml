@@ -1,0 +1,157 @@
+﻿@model ThemeVM
+@{
+    ViewData["Title"] = "Edite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-body">
+
+    <h2 id="TOP_PAGE">Edite </h2>
+
+    <form asp-action="Edite" asp-controller="Theme" class="form-group " enctype="multipart/form-data">
+        <input type="hidden" class="form-control" asp-for="ThemeImgUrl" B>
+        <input type="hidden" class="form-control" asp-for="Id" >
+
+
+        <div class="text-center">
+            <h3>Title</h3>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">English Title</label>
+            <input type="text" class="form-control" asp-for="ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Arabic Title</label>
+            <input type="text" class="form-control" asp-for="Ar_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">German Title</label>
+            <input type="text" class="form-control" asp-for="Ger_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Italian Title</label>
+            <input type="text" class="form-control" asp-for="ital_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Turkish Title</label>
+            <input type="text" class="form-control" asp-for="Tur_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">French Title</label>
+            <input type="text" class="form-control" asp-for="Fr_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Romanian Title</label>
+            <input type="text" class="form-control" asp-for="Rom_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Spanish Title</label>
+            <input type="text" class="form-control" asp-for="Esp_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Chinese Title</label>
+            <input type="text" class="form-control" asp-for="Chines_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Filipino Title</label>
+            <input type="text" class="form-control" asp-for="Filip_ThemeTitle" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="text-center">
+            <h3>Description</h3>
+        </div>
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">English Description</label>
+            <input type="text" class="form-control" asp-for="ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Arabic Description</label>
+            <input type="text" class="form-control" asp-for="Ar_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">German Description</label>
+            <input type="text" class="form-control" asp-for="Ger_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Italian Description</label>
+            <input type="text" class="form-control" asp-for="ital_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Turkish Description</label>
+            <input type="text" class="form-control" asp-for="Tur_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">French Description</label>
+            <input type="text" class="form-control" asp-for="Fr_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Romanian Description</label>
+            <input type="text" class="form-control" asp-for="Rom_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Spanish Description</label>
+            <input type="text" class="form-control" asp-for="Esp_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Chinese Description</label>
+            <input type="text" class="form-control" asp-for="Chines_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+
+        <div class="col-sm-12 data-field-col" style="margin: 10px">
+            <label for="data-name">Filipino Description</label>
+            <input type="text" class="form-control" asp-for="Filip_ThemeDescription" style="background-color: #10163A; margin: 5px ">
+        </div>
+
+        <div class="card-body demo-vertical-spacing demo-only-element">
+            <div class="input-group">
+                <label for="data-name" class="input-group-text">Upload photo</label>
+                <input style="background-color: #10163A; margin: 5px " class="form-control" asp-for="ThemePhoto" />
+            </div>
+        </div>
+
+        <center>
+            <input type="submit" value="Edite" class="btn btn-success" />
+        </center>
+        <br />   <br />
+    </form>
+    <center>
+        <a asp-controller="Theme" asp-action="Index" class="btn btn-primary">Back</a>
+    </center>
+</div>
+

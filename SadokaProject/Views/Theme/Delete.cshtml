@@ -1,0 +1,129 @@
+﻿@model ThemeVM;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="">
+    <div class="">
+        <h2>Delete </h2>
+
+        <form asp-controller="Theme" asp-action="Delete" class="form-group ">
+
+            <div asp-validation-summary="All;" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" disabled class="form-control" />
+            <input type="hidden" asp-for="ThemeImgUrl" disabled class="form-control" />
+
+            <label>English Title</label>
+            <input type="Text" asp-for="ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Arabic Title</label>
+            <input type="Text" asp-for="Ar_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Title</label>
+            <input type="Text" asp-for="Ger_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Title</label>
+            <input type="Text" asp-for="ital_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Title</label>
+            <input type="Text" asp-for="Rom_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Title</label>
+            <input type="Text" asp-for="Fr_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Title</label>
+            <input type="Text" asp-for="Tur_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Title</label>
+            <input type="Text" asp-for="Esp_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Chinese Title</label>
+            <input type="Text" asp-for="Chines_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Title</label>
+            <input type="Text" asp-for="Filip_ThemeTitle" disabled class="form-control" />
+            <br />
+            <br />
+
+
+
+
+            <label>English Description</label>
+            <input type="Text" asp-for="ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Arabic Description</label>
+            <input type="Text" asp-for="Ar_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+            <label>German Description</label>
+            <input type="Text" asp-for="Ger_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Italian Description</label>
+            <input type="Text" asp-for="ital_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Romanian Description</label>
+            <input type="Text" asp-for="Rom_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>French Description</label>
+            <input type="Text" asp-for="Fr_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Turkish Description</label>
+            <input type="Text" asp-for="Tur_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Spanish Description</label>
+            <input type="Text" asp-for="Esp_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Chinese Description</label>
+            <input type="Text" asp-for="Chines_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+            <label>Filipino Description</label>
+            <input type="Text" asp-for="Filip_ThemeDescription" disabled class="form-control" />
+            <br />
+            <br />
+
+
+            <label>Image</label>
+            <div style="width:150px;Height:150px">
+                <img src="~/Uploads/Theme/@Model.ThemeImgUrl" alt="Card image cap" style="width:100%; height:100% ; border-radius:5px">
+            </div>
+            <br />
+            <br />
+            <center>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="Theme" asp-action="Edite" asp-route-id="@Model.Id" class="btn btn-primary">Edite</a>
+
+            </center>
+            <br />   <br />
+        </form>
+        <center>
+            <a asp-controller="Theme" asp-action="Index" class="btn btn-success">Back</a>
+        </center>
+    </div>
+</section>
+
